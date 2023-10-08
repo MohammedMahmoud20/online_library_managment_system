@@ -1,0 +1,31 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="row justify-content-center mt-5">
+    <div class="col-lg-6">
+      <h2 class="text-center">Welcome to our Online Library</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-4">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Choose your role:</h5>
+          <div class="row">
+            <div class="col-lg-4">
+              <a class="btn btn-primary btn-block" href="{% url 'accounts:admin_register' %}">I am an admin</a>
+            </div>
+            <div class="col-lg-4">
+              <a class="btn btn-success btn-block" href="{% url 'accounts:student_register' %}">I am a student</a>
+           </div>
+            <div class="col-lg-4">
+              <a class="btn btn-info btn-block" href="{% url 'login' %}">I have an account</a>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

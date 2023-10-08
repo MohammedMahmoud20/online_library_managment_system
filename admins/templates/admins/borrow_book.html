@@ -1,0 +1,18 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+{% block title %}borrowed books {% endblock %}
+{% block content %}
+{% for borrowed_book in borrowed_books %}
+  <div style="display:inline-block">
+    <div class="card" style="width: 18rem; background-color: black;">
+      <img src="{{ borrowed_book.book.get_image_url }}" width="200" height="200" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Borrower: {{ borrowed_book.borrower_name }}</h5>
+        <h5 class="card-title">Return Date: {{ borrowed_book.return_date }}</h5>
+        <a href="{% url 'admins_show' b.id %}" class="btn btn-primary">Show details</a>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}
+{% block body %}{% endblock %}

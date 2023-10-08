@@ -1,0 +1,27 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Student Profile{% endblock %}
+
+{% block content %}
+<div class="student-info">
+    <h2>name :{{ student.user.get_full_name }}</h2>
+</div>
+
+<h2>Borrowed Books</h2>
+{% for borrowed_book in borrowed_books %}
+  <div style="display:inline-block">
+    <div class="card" style="width: 18rem;">
+      <img src="{{ borrowed_book.book.get_image_url }}" width="200" height="200" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Borrower:{{ student.user.get_full_name }}</h5>
+        <h5 class="card-title">Return Date: {{ borrowed_book.return_date }}</h5>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</br>
+<a href="{% url 'accounts:edit_profile' %}" class="btn btn-primary btn-danger">Edit Profile</a>
+{% endblock %}
+
+{% block body %}{% endblock %}

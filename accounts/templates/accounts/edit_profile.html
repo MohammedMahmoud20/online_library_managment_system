@@ -1,0 +1,20 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+<h1>Edit Profile</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" id="first_name" value="{{ student.user.first_name }}">
+    <br>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" id="last_name" value="{{ student.user.last_name }}">
+    <br>
+    <button type="submit">Save</button>
+</form>
+<script src="{% static 'admins/js/script.js'%}"> </script>
+{% endblock %}

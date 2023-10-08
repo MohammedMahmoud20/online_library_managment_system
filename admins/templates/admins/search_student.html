@@ -1,0 +1,19 @@
+{% extends 'admins/base.html' %}
+
+{% block content %}
+    <h2>Search Student</h2>
+    <form class="d-flex" role="search" onsubmit="redirectToProfile(event)">
+        {% csrf_token %}
+        <input class="form-control me-2" type="search" placeholder="Search by ID" aria-label="Search" name="user_id" id="user_id">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+
+    <script>
+        function redirectToProfile(event) {
+            event.preventDefault();
+            var userId = document.getElementById('user_id').value;
+            var profileUrl = "/admins/search_student/" + userId + "/";
+            window.location.href = profileUrl;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+{% block title %}Edit Product{% endblock %}
+{% block content %}
+<h1>Edit Product</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">name</label>
+        <input type="text" name="name" class="form-control" aria-describedby="emailHelp" value="{{ book.name }}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">image</label>
+        <input type="file" name="image" class="form-control" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">description</label>
+        <input type="text" name="description" class="form-control" aria-describedby="emailHelp" value="{{ book.description }}">
+    </div>
+    {% comment %} <div class="mb-3">
+      <label class="form-label">catigory</label>
+      <select class="form-select" aria-label="Default select example" name="catigory_id">
+          <option selected disabled value="">Open this select menu</option>
+          {% for cat in catigories %}
+          <option value="{{cat.id}}">{{cat.name}}</option>
+          {% endfor %}
+        </select>
+  </div> {% endcomment %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="{% static 'admins/js/script.js'%}"> </script>
+{% endblock %}

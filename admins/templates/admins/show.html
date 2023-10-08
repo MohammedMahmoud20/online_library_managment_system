@@ -1,0 +1,22 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+{% block title %}books info {% endblock %}
+{% block content %}
+<div style="display:inline-block">
+  <div class="card" style="width: 18rem;">
+<img src="{{book.get_image_url}}" width="200" height="200" class="card-img-top" alt="...">
+<div class="card-body">
+  <h5 class="card-title">name : {{book.name}}</h5>
+  {% comment %} <h5 class="card-title">catigory : {{book.catigory}}</h5> {% endcomment %}
+  <h5 class="card-title">author : {{book.author}}</h5>
+  <h5 class="card-title">description : {{book.description}}</h5>
+  <h5 class="card-title">published_at : {{book.published_at}}</h5>
+  <a href="{% url 'admin_all_books' %}" class="btn btn-primary">back to all books</a>
+</div>
+</div>
+  </div>
+{% endblock %}
+
+{% block body %}
+
+{% endblock %}

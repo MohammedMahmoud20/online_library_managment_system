@@ -1,0 +1,26 @@
+{% extends 'student/layouts/base.html' %}
+{% load static %}
+
+{% block title %}All Users{% endblock %}
+
+{% block content %}
+
+<br>
+{% for user in users %}
+    <div style="display:inline-block">
+        <div class="card" style="width: 18rem;">
+            {% if user.student %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+                    {% if user.is_admin %}
+                        <p>Type: Admin</p>
+                    {% else %}
+                        <p>Type: Student</p>
+                    {% endif %}
+                    <a href="{% url 'accounts:student_profile' user.student.id %}" class="btn btn-primary">View Details</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}
